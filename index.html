@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CircuLink — Textile Surplus, Turned to Value</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Raleway:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+
+<!-- Global SVG defs (marker shared across all SVG logos on page) -->
+<svg style="display:none" aria-hidden="true">
+  <defs>
+    <marker id="cl-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto">
+      <path d="M0,1 L9,5 L0,9 Z" fill="white"/>
+    </marker>
+  </defs>
+</svg>
+
+<!-- ─── NAV ─── -->
+<nav class="nav" id="nav">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__logo">
+      <svg class="logo-icon" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect width="52" height="52" fill="#1A5532"/>
+        <rect x="5" y="16" width="7" height="7" fill="#EAD99A"/><rect x="13" y="16" width="7" height="7" fill="#D4BF7A"/><rect x="21" y="16" width="7" height="7" fill="#EAD99A"/><rect x="29" y="16" width="7" height="7" fill="#D4BF7A"/><rect x="37" y="16" width="7" height="7" fill="#EAD99A"/><rect x="45" y="16" width="7" height="7" fill="#D4BF7A"/>
+        <rect x="5" y="24" width="7" height="7" fill="#D4BF7A"/><rect x="13" y="24" width="7" height="7" fill="#EAD99A"/><rect x="21" y="24" width="7" height="7" fill="#D4BF7A"/><rect x="29" y="24" width="7" height="7" fill="#EAD99A"/><rect x="37" y="24" width="7" height="7" fill="#D4BF7A"/><rect x="45" y="24" width="7" height="7" fill="#EAD99A"/>
+        <rect x="5" y="32" width="7" height="7" fill="#EAD99A"/><rect x="13" y="32" width="7" height="7" fill="#D4BF7A"/><rect x="21" y="32" width="7" height="7" fill="#EAD99A"/><rect x="29" y="32" width="7" height="7" fill="#D4BF7A"/><rect x="37" y="32" width="7" height="7" fill="#EAD99A"/>
+        <rect x="5" y="40" width="7" height="7" fill="#D4BF7A"/><rect x="13" y="40" width="7" height="7" fill="#EAD99A"/><rect x="21" y="40" width="7" height="7" fill="#D4BF7A"/><rect x="29" y="40" width="7" height="7" fill="#EAD99A"/>
+        <path d="M3 23 Q10 15 17 23 Q24 31 31 23 Q38 15 45 23 Q50 27 52 25" stroke="#4EC87A" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <path d="M3 18 Q10 10 17 18 Q24 26 31 18 Q38 10 45 18" stroke="#72D890" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.7"/>
+        <g transform="translate(26,26)">
+          <path d="M3.82,-21.67 A22,22 0 0 1 20.67,7.52" stroke="white" stroke-width="3" fill="none" stroke-linecap="round" marker-end="url(#cl-arr)"/>
+          <path d="M3.82,-21.67 A22,22 0 0 1 20.67,7.52" stroke="white" stroke-width="3" fill="none" stroke-linecap="round" marker-end="url(#cl-arr)" transform="rotate(120)"/>
+          <path d="M3.82,-21.67 A22,22 0 0 1 20.67,7.52" stroke="white" stroke-width="3" fill="none" stroke-linecap="round" marker-end="url(#cl-arr)" transform="rotate(240)"/>
+        </g>
+      </svg>
+      <span class="logo-text"><span class="logo-circu">Circu</span><span class="logo-link">Link</span></span>
+    </a>
+    <ul class="nav__links">
+      <li><a href="index.html#how-it-works">How It Works</a></li>
+      <li><a href="marketplace.html">Marketplace</a></li>
+      <li><a href="sell.html">For Sellers</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+    <div class="nav__actions">
+      <button class="cart-trigger" onclick="openCart()" aria-label="View cart">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+        <span class="cart-badge" style="display:none">0</span>
+      </button>
+      <a href="#" class="btn btn--ghost">Log In</a>
+      <a href="marketplace.html" class="btn btn--primary">Get Started</a>
+    </div>
+    <button class="nav__hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true">
+  <ul>
+    <li><a href="index.html#how-it-works" onclick="closeMenu()">How It Works</a></li>
+    <li><a href="marketplace.html" onclick="closeMenu()">Marketplace</a></li>
+    <li><a href="sell.html" onclick="closeMenu()">For Sellers</a></li>
+    <li><a href="about.html" onclick="closeMenu()">About</a></li>
+  </ul>
+  <div class="mobile-menu__actions">
+    <a href="#" class="btn btn--outline">Log In</a>
+    <a href="marketplace.html" class="btn btn--primary">Get Started</a>
+  </div>
+</div>
+
+<!-- ─── HERO ─── -->
+<section class="hero">
+  <div class="hero__bg">
+    <div class="hero__orb hero__orb--1"></div>
+    <div class="hero__orb hero__orb--3"></div>
+    <div class="hero__grid"></div>
+  </div>
+  <div class="hero__content reveal">
+    <div class="hero__badge">
+      <span class="badge-pulse"></span>
+      Southeast Asia's Textile Exchange
+    </div>
+    <h1 class="hero__headline">
+      Textile Surplus,<br/>
+      <em>Turned to</em><br/>
+      Value
+    </h1>
+    <p class="hero__sub">
+      CircuLink is a trusted B2B marketplace connecting manufacturers
+      sitting on surplus fabric with verified designers and SMEs across
+      Southeast Asia — making redistribution fast, data-driven, and
+      trust-first.
+    </p>
+    <div class="hero__cta">
+      <a href="marketplace.html" class="btn btn--primary btn--lg">
+        Browse Surplus
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="sell.html" class="btn btn--outline btn--lg">List Your Stock</a>
+    </div>
+    <div class="hero__trust">
+      <div class="trust-item"><strong>189K+</strong><span>tonnes wasted in SG yearly</span></div>
+      <div class="trust-div"></div>
+      <div class="trust-item"><strong>4%</strong><span>actually recycled in 2022</span></div>
+      <div class="trust-div"></div>
+      <div class="trust-item"><strong>4 markets</strong><span>India · Indonesia · Myanmar · SG</span></div>
+    </div>
+  </div>
+  <div class="hero__visual reveal-r">
+    <div class="card-stack">
+      <div class="h-card h-card--c">
+        <div class="h-card__img fab-3"></div>
+        <div class="h-card__body"><span class="h-card__tag">Linen Blend</span><span class="h-card__price">$9 / m</span></div>
+      </div>
+      <div class="h-card h-card--b">
+        <div class="h-card__img fab-2"></div>
+        <div class="h-card__body"><span class="h-card__tag">Recycled Polyester</span><span class="h-card__price">$3 / m</span></div>
+      </div>
+      <div class="h-card h-card--a">
+        <div class="h-card__img fab-1"></div>
+        <div class="h-card__body"><span class="h-card__tag">Organic Cotton</span><span class="h-card__price">$4.50 / m</span></div>
+        <div class="h-card__badge">
+          <svg width="11" height="11" viewBox="0 0 16 16"><path d="M8 1l2.09 4.26L15 6.27l-3.5 3.41.83 4.82L8 12.1l-4.33 2.4.83-4.82L1 6.27l4.91-.71z" fill="#E8A020"/></svg>
+          Verified Seller
+        </div>
+      </div>
+      <div class="h-float h-float--1">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="#3DAA6A" stroke-width="2" stroke-linecap="round"/></svg>
+        Trust-verified listing
+      </div>
+      <div class="h-float h-float--2">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7l10 5 10-5-10-5z" stroke="#3DAA6A" stroke-width="1.5" stroke-linecap="round"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5" stroke="#3DAA6A" stroke-width="1.5" stroke-linecap="round"/></svg>
+        Impact cert generated
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── TICKER ─── -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker__track">
+    <span>Organic Cotton</span><span class="ticker__dot">◆</span><span>Merino Wool</span><span class="ticker__dot">◆</span><span>Belgian Linen</span><span class="ticker__dot">◆</span><span>rPET Fabric</span><span class="ticker__dot">◆</span><span>Selvedge Denim</span><span class="ticker__dot">◆</span><span>Tencel Jersey</span><span class="ticker__dot">◆</span><span>Hemp Canvas</span><span class="ticker__dot">◆</span><span>Silk Charmeuse</span><span class="ticker__dot">◆</span><span>Wool Tweed</span><span class="ticker__dot">◆</span><span>Bamboo Blend</span><span class="ticker__dot">◆</span><span>Organic Cotton</span><span class="ticker__dot">◆</span><span>Merino Wool</span><span class="ticker__dot">◆</span><span>Belgian Linen</span><span class="ticker__dot">◆</span><span>rPET Fabric</span><span class="ticker__dot">◆</span><span>Selvedge Denim</span><span class="ticker__dot">◆</span><span>Tencel Jersey</span><span class="ticker__dot">◆</span><span>Hemp Canvas</span><span class="ticker__dot">◆</span><span>Silk Charmeuse</span><span class="ticker__dot">◆</span>
+  </div>
+</div>
+
+<!-- ─── HOW IT WORKS ─── -->
+<section class="section how" id="how-it-works">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">The Process</span>
+      <h2>Simple. Standardised. Trustworthy.</h2>
+      <p>CircuLink isn't just another listing site — it's structured redistribution infrastructure for the textile industry.</p>
+    </div>
+    <div class="tab-row reveal">
+      <button class="tab-btn tab-btn--on" data-tab="sellers">For Suppliers</button>
+      <button class="tab-btn" data-tab="buyers">For Buyers</button>
+    </div>
+    <div id="tabContent">
+      <div class="tab-pane tab-pane--on" data-pane="sellers">
+        <div class="steps">
+          <div class="step reveal">
+            <div class="step__num">01</div>
+            <div class="step__icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+            <h3>List Your Surplus</h3>
+            <p>Log fabric type, quantity, specs, location and availability window. Takes under 5 minutes. We standardise the data automatically.</p>
+          </div>
+          <div class="step-conn"></div>
+          <div class="step reveal" style="transition-delay:.12s">
+            <div class="step__num">02</div>
+            <div class="step__icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2"/><path d="m21 21-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+            <h3>Get Discovered</h3>
+            <p>Verified buyers across Singapore, India, Indonesia and Myanmar browse your listings. Smart matching surfaces the right leads.</p>
+          </div>
+          <div class="step-conn"></div>
+          <div class="step reveal" style="transition-delay:.24s">
+            <div class="step__num">03</div>
+            <div class="step__icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></div>
+            <h3>Transact with Trust</h3>
+            <p>Messages, samples, offers — handled in one platform. Payment held in escrow. Every deal builds your verified transaction history.</p>
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane" data-pane="buyers">
+        <div class="steps">
+          <div class="step reveal">
+            <div class="step__num">01</div>
+            <div class="step__icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+            <h3>Search & Filter</h3>
+            <p>Filter by fabric type, weight, certification, MOQ, price and region. Standardised data makes comparison fast and accurate.</p>
+          </div>
+          <div class="step-conn"></div>
+          <div class="step reveal" style="transition-delay:.12s">
+            <div class="step__num">02</div>
+            <div class="step__icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+            <h3>Request & Sample</h3>
+            <p>Message sellers, request swatches, negotiate bulk pricing — all inside CircuLink. No cold emails, no broken WhatsApp chains.</p>
+          </div>
+          <div class="step-conn"></div>
+          <div class="step reveal" style="transition-delay:.24s">
+            <div class="step__num">03</div>
+            <div class="step__icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><rect x="1" y="4" width="22" height="16" rx="2" stroke="currentColor" stroke-width="2"/><path d="M1 10h22" stroke="currentColor" stroke-width="2"/></svg></div>
+            <h3>Order & Get Certified</h3>
+            <p>Complete your purchase securely. Receive an impact certificate showing CO₂ saved, water conserved, and fabric diverted from waste.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FEATURED LISTINGS ─── -->
+<section class="section featured" id="featured">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">Live Listings</span>
+      <h2>What's Available Now</h2>
+      <p>Verified surplus fabric from manufacturers across the region — ready to move.</p>
+    </div>
+    <div class="feat-grid reveal">
+      <div class="lcard">
+        <div class="lcard__img fab-cotton">
+          <span class="lcard__badge badge--new">New</span>
+          <button class="lcard__fav" aria-label="Save"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></button>
+        </div>
+        <div class="lcard__body">
+          <div class="lc-meta"><span class="lc-type">Organic Cotton</span><span class="lc-cert"><svg width="10" height="10" viewBox="0 0 24 24"><path d="M17 8C8 10 5.9 16.17 3.82 19.85A2 2 0 003 22l1 .26 4-1.26 3-4-2-3s1-3 8-7z" fill="currentColor"/></svg>BCI</span></div>
+          <h4>Surplus BCI Cotton — Ivory / Natural</h4>
+          <p class="lc-desc">Premium BCI-certified cotton, leftover from a garment run in Tirupur, India. Consistent quality, ready to ship.</p>
+          <div class="lc-row"><div class="lc-price"><strong>$4.50</strong><span> / m</span></div><span class="lc-qty">200m available</span></div>
+          <div class="lc-seller"><div class="sel-av sel-av--a"></div><span>Tirupur Mills Co.</span><span class="sel-rating">★ 4.9</span></div>
+        </div>
+      </div>
+      <div class="lcard lcard--featured">
+        <div class="lcard__img fab-wool">
+          <span class="lcard__badge badge--hot">Hot</span>
+          <button class="lcard__fav" aria-label="Save"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></button>
+        </div>
+        <div class="lcard__body">
+          <div class="lc-meta"><span class="lc-type">Merino Wool</span><span class="lc-cert"><svg width="10" height="10" viewBox="0 0 24 24"><path d="M17 8C8 10 5.9 16.17 3.82 19.85A2 2 0 003 22l1 .26 4-1.26 3-4-2-3s1-3 8-7z" fill="currentColor"/></svg>RWS</span></div>
+          <h4>Deadstock Merino Wool — Charcoal Grey</h4>
+          <p class="lc-desc">18.5 micron ultra-fine merino, RWS certified. Cancelled order from an activewear brand. 85m remaining.</p>
+          <div class="lc-row"><div class="lc-price"><strong>$18.00</strong><span> / m</span></div><span class="lc-qty">85m available</span></div>
+          <div class="lc-seller"><div class="sel-av sel-av--b"></div><span>Bandung Textile Hub</span><span class="sel-rating">★ 5.0</span></div>
+        </div>
+      </div>
+      <div class="lcard">
+        <div class="lcard__img fab-linen">
+          <button class="lcard__fav" aria-label="Save"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></button>
+        </div>
+        <div class="lcard__body">
+          <div class="lc-meta"><span class="lc-type">Belgian Linen</span></div>
+          <h4>Washed Surplus Linen — Natural Undyed</h4>
+          <p class="lc-desc">Pre-washed linen in natural finish. Ideal for sustainable resort wear or homeware. Large quantity available.</p>
+          <div class="lc-row"><div class="lc-price"><strong>$9.80</strong><span> / m</span></div><span class="lc-qty">450m available</span></div>
+          <div class="lc-seller"><div class="sel-av sel-av--c"></div><span>Maison Fabric SG</span><span class="sel-rating">★ 4.7</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="feat-cta reveal">
+      <a href="marketplace.html" class="btn btn--primary btn--lg">View All Listings</a>
+      <p>Over <strong>1,400 verified listings</strong> across 60+ fabric categories</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── IMPACT ─── -->
+<section class="section impact" id="impact">
+  <div class="impact__bg"></div>
+  <div class="container">
+    <div class="impact__inner">
+      <div class="impact__text reveal">
+        <span class="eyebrow eyebrow--light">Why This Matters</span>
+        <h2>Singapore Alone Throws Away 189,000 Tonnes of Textile Every Year.</h2>
+        <p class="impact__lead">
+          And <strong>only 4% is recycled</strong>. A significant share of this waste is pre-consumer — surplus fabric that never reached a consumer at all.
+        </p>
+        <p class="impact__sub">CircuLink attacks this at the source. By making redistribution easy, standardised, and trustworthy, we turn what was waste into what a designer in Jakarta or a tailor in Chennai actually needs.</p>
+        <div class="impact__nums">
+          <div><div class="i-num__val" data-target="12000">0</div><div class="i-num__unit">kg of fabric rescued so far</div></div>
+          <div><div class="i-num__val" data-target="28">0</div><div class="i-num__unit">tonnes of CO₂ avoided</div></div>
+          <div><div class="i-num__val" data-target="4200">0</div><div class="i-num__unit">m³ of water saved</div></div>
+        </div>
+      </div>
+      <div class="impact__right reveal-r">
+        <div class="impact__ring-wrap">
+          <div class="impact__ring">
+            <svg viewBox="0 0 200 200" class="ring-svg">
+              <circle cx="100" cy="100" r="80" fill="none" stroke="rgba(255,255,255,.07)" stroke-width="18"/>
+              <circle cx="100" cy="100" r="80" fill="none" stroke="#3DAA6A" stroke-width="18" stroke-dasharray="502" stroke-dashoffset="105" stroke-linecap="round" transform="rotate(-90 100 100)" class="ring-prog"/>
+            </svg>
+            <div class="ring-inner"><strong>79%</strong><span>of listed textiles successfully rehomed</span></div>
+          </div>
+        </div>
+        <div class="impact__pills">
+          <div class="i-pill"><svg width="14" height="14" viewBox="0 0 24 24"><path d="M17 8C8 10 5.9 16.17 3.82 19.85A2 2 0 003 22l1 .26 4-1.26 3-4-2-3s1-3 8-7z" fill="#3DAA6A"/></svg>Diverts from landfill</div>
+          <div class="i-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="#3DAA6A" stroke-width="1.5"/></svg>Verified impact data</div>
+          <div class="i-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#3DAA6A" stroke-width="1.5"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10A15.3 15.3 0 018 12a15.3 15.3 0 014-10z" stroke="#3DAA6A" stroke-width="1.5"/></svg>4 SEA markets</div>
+          <div class="i-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7l10 5 10-5-10-5z" stroke="#3DAA6A" stroke-width="1.5" stroke-linecap="round"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5" stroke="#3DAA6A" stroke-width="1.5" stroke-linecap="round"/></svg>Impact certificates</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FEATURES ─── -->
+<section class="section features">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">Platform Features</span>
+      <h2>Built for How the Industry Works</h2>
+      <p>Every feature is designed around real supplier and buyer pain points we found in the field.</p>
+    </div>
+    <div class="feat-grid-2">
+      <div class="feat-card reveal">
+        <div class="feat-icon fi--1"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2"/><path d="m21 21-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+        <h3>Standardised Data</h3>
+        <p>Every listing follows a structured format — fabric type, GSM, width, certs, MOQ, location. No more guessing or back-and-forth.</p>
+      </div>
+      <div class="feat-card reveal" style="transition-delay:.08s">
+        <div class="feat-icon fi--2"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></div>
+        <h3>Verified Messaging</h3>
+        <p>Both parties are verified before they can transact. Negotiate, request swatches, and confirm orders in one trusted thread.</p>
+      </div>
+      <div class="feat-card reveal" style="transition-delay:.16s">
+        <div class="feat-icon fi--3"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></div>
+        <h3>Verified Buyers & Sellers</h3>
+        <p>Every user is onboarded through a verification process — protecting brand reputation and ensuring quality on both sides.</p>
+      </div>
+      <div class="feat-card reveal" style="transition-delay:.24s">
+        <div class="feat-icon fi--4"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+        <h3>Impact Certificates</h3>
+        <p>Every purchase auto-generates a certificate: kg diverted, CO₂ saved, water conserved. Real data for your sustainability reports.</p>
+      </div>
+      <div class="feat-card reveal" style="transition-delay:.08s">
+        <div class="feat-icon fi--5"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="1" y="4" width="22" height="16" rx="2" stroke="currentColor" stroke-width="2"/><path d="M1 10h22" stroke="currentColor" stroke-width="2"/></svg></div>
+        <h3>Escrow Payments</h3>
+        <p>Funds held securely until the buyer confirms receipt. Zero payment fraud, zero chasing invoices. Just clean transactions.</p>
+      </div>
+      <div class="feat-card reveal" style="transition-delay:.16s">
+        <div class="feat-icon fi--6"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M18 20V10M12 20V4M6 20v-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+        <h3>Seller Dashboard</h3>
+        <p>Track views, inquiries, conversion and revenue in real time. Know which listings perform and which need repricing.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── VOICES ─── -->
+<section class="section testimonials">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">Inspiration</span>
+      <h2>Voices That Drive Us</h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi reveal">
+        <p class="testi__quote">"It is our generation that has the responsibility to be sustainable for the future; we ourselves have the duty to save the earth."</p>
+        <div class="testi__author"><div class="testi__av av-a"></div><div><strong>Taha Mufti</strong><span>Co-Founder, Bugboom — Fireside Chat, NUS</span></div></div>
+      </div>
+      <div class="testi reveal" style="transition-delay:.12s">
+        <p class="testi__quote">"Listen first! If you shoot first, people will recognise where you stand."</p>
+        <div class="testi__author"><div class="testi__av av-b"></div><div><strong>Prof. Ang Ser Nam</strong><span>NUS Enterprise — Entrepreneurship Fireside Chat</span></div></div>
+      </div>
+      <div class="testi reveal" style="transition-delay:.24s">
+        <p class="testi__quote">"Find people who align with the same beliefs and are inclined to support the ventures you develop."</p>
+        <div class="testi__author"><div class="testi__av av-c"></div><div><strong>En Cheng</strong><span>Co-Founder, Bugboom — Fireside Chat, NUS</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── ABOUT (home snippet) ─── -->
+<section class="section about-home">
+  <div class="container">
+    <div class="about-home__inner">
+      <div class="about-home__text reveal">
+        <span class="eyebrow">Our Story</span>
+        <h2>We Built CircuLink Because Redistribution Shouldn't Be This Hard</h2>
+        <p>Surplus is normal — even responsible factories produce it. The problem isn't the surplus itself. The problem is that redistribution is fragmented, manual, and trust-limited.</p>
+        <p>CircuLink is the infrastructure layer that was missing: a platform that standardises data, verifies both sides, and builds transaction trust over time — so that redistributing fabric becomes the path of least resistance, not an afterthought.</p>
+        <p>We focus on Southeast Asia first because that's where we have roots, and where the gap is biggest.</p>
+        <a href="about.html" class="btn btn--outline" style="margin-top:8px">Our Full Story</a>
+      </div>
+      <div class="values-list reveal-r">
+        <div class="val-item">
+          <div class="val-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></div>
+          <div><h4>Trust First</h4><p>Verification and transaction history reduce the biggest barrier to redistribution.</p></div>
+        </div>
+        <div class="val-item">
+          <div class="val-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M17 8C8 10 5.9 16.17 3.82 19.85A2 2 0 003 22l1 .26 4-1.26 3-4-2-3s1-3 8-7z" fill="currentColor" opacity=".8"/></svg></div>
+          <div><h4>Planet First</h4><p>Every metric we track maps back to environmental impact — not just revenue.</p></div>
+        </div>
+        <div class="val-item">
+          <div class="val-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7l10 5 10-5-10-5z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+          <div><h4>Standardised Data</h4><p>Not just listings — structured, comparable, searchable fabric data that scales.</p></div>
+        </div>
+        <div class="val-item">
+          <div class="val-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10A15.3 15.3 0 018 12a15.3 15.3 0 014-10z" stroke="currentColor" stroke-width="2"/></svg></div>
+          <div><h4>Regional Roots</h4><p>Built for SEA — India, Indonesia, Myanmar and Singapore. We know these supply chains.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CTA BANNER ─── -->
+<section class="cta-banner">
+  <div class="cta-banner__bg"></div>
+  <div class="container">
+    <div class="cta-banner__inner reveal">
+      <h2>Ready to Close the Loop?</h2>
+      <p>Join the pilot cohort of verified suppliers and buyers building Southeast Asia's circular textile economy.</p>
+      <div class="cta-banner__btns">
+        <a href="sell.html" class="btn btn--white btn--lg">List Your Surplus</a>
+        <a href="marketplace.html" class="btn btn--outline-light btn--lg">Browse Fabric</a>
+      </div>
+      <p class="cta-banner__fine">Free to join. No listing fees for your first 30 days.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <a href="index.html" class="nav__logo">
+          <svg class="logo-icon logo-icon-lg" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect width="52" height="52" fill="#1A5532"/>
+            <rect x="5" y="16" width="7" height="7" fill="#EAD99A"/><rect x="13" y="16" width="7" height="7" fill="#D4BF7A"/><rect x="21" y="16" width="7" height="7" fill="#EAD99A"/><rect x="29" y="16" width="7" height="7" fill="#D4BF7A"/><rect x="37" y="16" width="7" height="7" fill="#EAD99A"/>
+            <rect x="5" y="24" width="7" height="7" fill="#D4BF7A"/><rect x="13" y="24" width="7" height="7" fill="#EAD99A"/><rect x="21" y="24" width="7" height="7" fill="#D4BF7A"/><rect x="29" y="24" width="7" height="7" fill="#EAD99A"/><rect x="37" y="24" width="7" height="7" fill="#D4BF7A"/>
+            <rect x="5" y="32" width="7" height="7" fill="#EAD99A"/><rect x="13" y="32" width="7" height="7" fill="#D4BF7A"/><rect x="21" y="32" width="7" height="7" fill="#EAD99A"/>
+            <path d="M3 23 Q10 15 17 23 Q24 31 31 23 Q38 15 45 23 Q50 27 52 25" stroke="#4EC87A" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <g transform="translate(26,26)">
+              <path d="M3.82,-21.67 A22,22 0 0 1 20.67,7.52" stroke="white" stroke-width="3" fill="none" stroke-linecap="round" marker-end="url(#cl-arr)"/>
+              <path d="M3.82,-21.67 A22,22 0 0 1 20.67,7.52" stroke="white" stroke-width="3" fill="none" stroke-linecap="round" marker-end="url(#cl-arr)" transform="rotate(120)"/>
+              <path d="M3.82,-21.67 A22,22 0 0 1 20.67,7.52" stroke="white" stroke-width="3" fill="none" stroke-linecap="round" marker-end="url(#cl-arr)" transform="rotate(240)"/>
+            </g>
+          </svg>
+          <span class="logo-text"><span class="logo-circu">Circu</span><span class="logo-link">Link</span></span>
+        </a>
+        <p>Closing the loop on textile waste across Southeast Asia — one listing at a time.</p>
+        <div class="footer__social">
+          <a href="#" aria-label="Instagram"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg></a>
+          <a href="#" aria-label="LinkedIn"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+          <a href="#" aria-label="Twitter"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </div>
+      <div class="footer__links">
+        <div class="footer__col"><h5>Platform</h5><ul><li><a href="marketplace.html">Browse Fabric</a></li><li><a href="sell.html">List Surplus</a></li><li><a href="sell.html#pricing">Pricing</a></li><li><a href="#">Certifications</a></li></ul></div>
+        <div class="footer__col"><h5>Company</h5><ul><li><a href="about.html">About Us</a></li><li><a href="about.html#mission">Mission</a></li><li><a href="about.html#team">Team</a></li><li><a href="#">Blog</a></li></ul></div>
+        <div class="footer__col"><h5>Resources</h5><ul><li><a href="#">Help Centre</a></li><li><a href="#">Seller Guide</a></li><li><a href="#">Buyer Guide</a></li><li><a href="#">Contact Us</a></li></ul></div>
+        <div class="footer__col"><h5>Legal</h5><ul><li><a href="#">Privacy Policy</a></li><li><a href="#">Terms of Service</a></li><li><a href="#">Cookie Policy</a></li></ul></div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>&copy; 2025 CircuLink. All rights reserved.</p>
+      <p>Made in Singapore for Southeast Asia.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script src="cart.js"></script>
+</body>
+</html>

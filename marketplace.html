@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Marketplace — CircuLink</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Raleway:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+<svg style="display:none" aria-hidden="true">
+  <defs>
+    <marker id="cl-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto">
+      <path d="M0,1 L9,5 L0,9 Z" fill="white"/>
+    </marker>
+  </defs>
+</svg>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__logo">
+      <svg class="logo-icon" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect width="52" height="52" fill="#1A5532"/>
+        <rect x="5" y="16" width="7" height="7" fill="#EAD99A"/><rect x="13" y="16" width="7" height="7" fill="#D4BF7A"/><rect x="21" y="16" width="7" height="7" fill="#EAD99A"/><rect x="29" y="16" width="7" height="7" fill="#D4BF7A"/><rect x="37" y="16" width="7" height="7" fill="#EAD99A"/>
+        <rect x="5" y="24" width="7" height="7" fill="#D4BF7A"/><rect x="13" y="24" width="7" height="7" fill="#EAD99A"/><rect x="21" y="24" width="7" height="7" fill="#D4BF7A"/><rect x="29" y="24" width="7" height="7" fill="#EAD99A"/>
+        <rect x="5" y="32" width="7" height="7" fill="#EAD99A"/><rect x="13" y="32" width="7" height="7" fill="#D4BF7A"/><rect x="21" y="32" width="7" height="7" fill="#EAD99A"/>
+        <path d="M3 23 Q10 15 17 23 Q24 31 31 23 Q38 15 45 23 Q50 27 52 25" stroke="#4EC87A" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <g transform="translate(26,26)">
+          <path d="M3.82,-21.67 A22,22 0 0 1 20.67,7.52" stroke="white" stroke-width="3" fill="none" stroke-linecap="round" marker-end="url(#cl-arr)"/>
+          <path d="M3.82,-21.67 A22,22 0 0 1 20.67,7.52" stroke="white" stroke-width="3" fill="none" stroke-linecap="round" marker-end="url(#cl-arr)" transform="rotate(120)"/>
+          <path d="M3.82,-21.67 A22,22 0 0 1 20.67,7.52" stroke="white" stroke-width="3" fill="none" stroke-linecap="round" marker-end="url(#cl-arr)" transform="rotate(240)"/>
+        </g>
+      </svg>
+      <span class="logo-text"><span class="logo-circu">Circu</span><span class="logo-link">Link</span></span>
+    </a>
+    <ul class="nav__links">
+      <li><a href="index.html#how-it-works">How It Works</a></li>
+      <li><a href="marketplace.html" class="active">Marketplace</a></li>
+      <li><a href="sell.html">For Sellers</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+    <div class="nav__actions">
+      <button class="cart-trigger" onclick="openCart()" aria-label="View cart">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+        <span class="cart-badge" style="display:none">0</span>
+      </button>
+      <a href="#" class="btn btn--ghost">Log In</a>
+      <a href="sell.html" class="btn btn--primary">List Surplus</a>
+    </div>
+    <button class="nav__hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <ul>
+    <li><a href="index.html#how-it-works" onclick="closeMenu()">How It Works</a></li>
+    <li><a href="marketplace.html" onclick="closeMenu()">Marketplace</a></li>
+    <li><a href="sell.html" onclick="closeMenu()">For Sellers</a></li>
+    <li><a href="about.html" onclick="closeMenu()">About</a></li>
+  </ul>
+  <div class="mobile-menu__actions">
+    <a href="#" class="btn btn--outline">Log In</a>
+    <a href="sell.html" class="btn btn--primary">List Surplus</a>
+  </div>
+</div>
+
+<!-- MARKETPLACE HERO -->
+<div class="mp-hero">
+  <div class="mp-hero__bg"></div>
+  <div class="container mp-hero__inner">
+    <span class="eyebrow eyebrow--light">Browse Verified Listings</span>
+    <h1>Textile Surplus Marketplace</h1>
+    <p>Discover verified surplus fabric from manufacturers across India, Indonesia, Myanmar and Singapore. Standardised data. Trusted sellers. Real impact.</p>
+    <div class="mp-search-wrap">
+      <input type="text" id="searchInput" placeholder="Search fabric type, colour, supplier, certification…" autocomplete="off"/>
+      <button class="mp-search-btn" id="searchBtn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2"/><path d="m21 21-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        Search
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Filter overlay (mobile) -->
+<div class="filter-overlay" id="filterOverlay" onclick="closeFilterPanel()"></div>
+
+<div class="container" style="padding-top:0">
+  <div class="mp-layout">
+
+    <!-- ── FILTER PANEL ── -->
+    <aside class="filter-panel" id="filterPanel">
+      <div class="fp-head">
+        <h3>Filters</h3>
+        <button class="fp-clear" id="clearAllFilters">Clear All</button>
+      </div>
+
+      <!-- Active chips -->
+      <div class="active-chips" id="activeChips"></div>
+
+      <!-- Fabric Type -->
+      <div class="filter-section">
+        <button class="fs-toggle open" data-section="type">Fabric Type <span class="arrow">▾</span></button>
+        <div class="fs-body open" id="sec-type">
+          <p class="fs-group-label">Natural Fibres</p>
+          <label class="fs-check"><input type="checkbox" name="type" value="cotton"><span>Cotton</span></label>
+          <label class="fs-check"><input type="checkbox" name="type" value="organic-cotton"><span>Organic Cotton</span></label>
+          <label class="fs-check"><input type="checkbox" name="type" value="linen"><span>Linen</span></label>
+          <label class="fs-check"><input type="checkbox" name="type" value="wool"><span>Wool / Merino</span></label>
+          <label class="fs-check"><input type="checkbox" name="type" value="silk"><span>Silk</span></label>
+          <label class="fs-check"><input type="checkbox" name="type" value="cashmere"><span>Cashmere</span></label>
+          <label class="fs-check"><input type="checkbox" name="type" value="hemp"><span>Hemp</span></label>
+          <label class="fs-check"><input type="checkbox" name="type" value="bamboo"><span>Bamboo / Modal</span></label>
+          <p class="fs-group-label">Synthetic &amp; Blends</p>
+          <label class="fs-check"><input type="checkbox" name="type" value="polyester"><span>Recycled Polyester (rPET)</span></label>
+          <label class="fs-check"><input type="checkbox" name="type" value="nylon"><span>Nylon / Recycled Nylon</span></label>
+          <label class="fs-check"><input type="checkbox" name="type" value="viscose"><span>Viscose / Rayon</span></label>
+          <label class="fs-check"><input type="checkbox" name="type" value="tencel"><span>Tencel / Lyocell</span></label>
+          <label class="fs-check"><input type="checkbox" name="type" value="denim"><span>Denim</span></label>
+          <label class="fs-check"><input type="checkbox" name="type" value="blend"><span>Blends</span></label>
+        </div>
+      </div>
+
+      <!-- Price Range -->
+      <div class="filter-section">
+        <button class="fs-toggle open" data-section="price">Price / Metre <span class="arrow">▾</span></button>
+        <div class="fs-body open" id="sec-price">
+          <div class="range-disp">
+            <span id="priceMinLbl">$0</span>
+            <span id="priceMaxLbl">$100+</span>
+          </div>
+          <div class="range-wrap">
+            <div class="range-track"><div class="range-fill" id="priceFill"></div></div>
+            <input type="range" class="range-inp" id="priceMin" min="0" max="100" value="0" step="1"/>
+            <input type="range" class="range-inp" id="priceMax" min="0" max="100" value="100" step="1"/>
+          </div>
+        </div>
+      </div>
+
+      <!-- GSM -->
+      <div class="filter-section">
+        <button class="fs-toggle" data-section="gsm">Weight / GSM <span class="arrow">▾</span></button>
+        <div class="fs-body" id="sec-gsm">
+          <div class="range-disp">
+            <span id="gsmMinLbl">50 gsm</span>
+            <span id="gsmMaxLbl">500 gsm</span>
+          </div>
+          <div class="range-wrap">
+            <div class="range-track"><div class="range-fill" id="gsmFill"></div></div>
+            <input type="range" class="range-inp" id="gsmMin" min="50" max="500" value="50" step="10"/>
+            <input type="range" class="range-inp" id="gsmMax" min="50" max="500" value="500" step="10"/>
+          </div>
+        </div>
+      </div>
+
+      <!-- Certifications -->
+      <div class="filter-section">
+        <button class="fs-toggle" data-section="cert">Certifications <span class="arrow">▾</span></button>
+        <div class="fs-body" id="sec-cert">
+          <label class="fs-check"><input type="checkbox" name="cert" value="gots"><span>GOTS (Organic Textile)</span></label>
+          <label class="fs-check"><input type="checkbox" name="cert" value="oeko-tex"><span>OEKO-TEX 100</span></label>
+          <label class="fs-check"><input type="checkbox" name="cert" value="grs"><span>GRS (Global Recycled Standard)</span></label>
+          <label class="fs-check"><input type="checkbox" name="cert" value="rws"><span>RWS (Responsible Wool)</span></label>
+          <label class="fs-check"><input type="checkbox" name="cert" value="bci"><span>BCI (Better Cotton)</span></label>
+          <label class="fs-check"><input type="checkbox" name="cert" value="bluesign"><span>Bluesign</span></label>
+          <label class="fs-check"><input type="checkbox" name="cert" value="none"><span>Uncertified (lower price)</span></label>
+        </div>
+      </div>
+
+      <!-- Condition -->
+      <div class="filter-section">
+        <button class="fs-toggle" data-section="condition">Condition <span class="arrow">▾</span></button>
+        <div class="fs-body" id="sec-condition">
+          <label class="fs-check"><input type="checkbox" name="condition" value="deadstock"><span>Deadstock (unused, cancelled)</span></label>
+          <label class="fs-check"><input type="checkbox" name="condition" value="surplus"><span>Surplus / Overstock</span></label>
+          <label class="fs-check"><input type="checkbox" name="condition" value="end-of-roll"><span>End-of-Roll</span></label>
+          <label class="fs-check"><input type="checkbox" name="condition" value="sample"><span>Sample Stock</span></label>
+          <label class="fs-check"><input type="checkbox" name="condition" value="seconds"><span>Seconds (minor imperfections)</span></label>
+        </div>
+      </div>
+
+      <!-- Colour -->
+      <div class="filter-section">
+        <button class="fs-toggle" data-section="color">Colour <span class="arrow">▾</span></button>
+        <div class="fs-body" id="sec-color">
+          <div class="color-swatches">
+            <button class="swatch" data-color="white"   style="background:#F4F0E8;border:1.5px solid #ccc" title="White / Ivory"></button>
+            <button class="swatch" data-color="beige"   style="background:#E4D49A" title="Beige / Cream"></button>
+            <button class="swatch" data-color="natural" style="background:#C4A870" title="Natural / Undyed"></button>
+            <button class="swatch" data-color="brown"   style="background:#8B6040" title="Brown / Tan"></button>
+            <button class="swatch" data-color="black"   style="background:#1A1A1A" title="Black"></button>
+            <button class="swatch" data-color="grey"    style="background:#8A8A8A" title="Grey / Charcoal"></button>
+            <button class="swatch" data-color="green"   style="background:#3A7A4A" title="Green / Sage"></button>
+            <button class="swatch" data-color="blue"    style="background:#2A5A8A" title="Blue / Navy / Indigo"></button>
+            <button class="swatch" data-color="red"     style="background:#8A2A2A" title="Red / Burgundy"></button>
+            <button class="swatch" data-color="pink"    style="background:#C4788A" title="Pink / Dusty Rose"></button>
+          </div>
+          <p style="font-size:.72rem;color:var(--t4);margin-top:8px">Hover for colour name. Click to filter.</p>
+        </div>
+      </div>
+
+      <!-- Location -->
+      <div class="filter-section">
+        <button class="fs-toggle" data-section="location">Origin / Location <span class="arrow">▾</span></button>
+        <div class="fs-body" id="sec-location">
+          <select class="fp-select" id="locationFilter">
+            <option value="">Any Region</option>
+            <option value="singapore">Singapore</option>
+            <option value="india">India</option>
+            <option value="indonesia">Indonesia</option>
+            <option value="myanmar">Myanmar</option>
+            <option value="sea">Other SEA</option>
+            <option value="europe">Europe</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Min Order -->
+      <div class="filter-section">
+        <button class="fs-toggle" data-section="minorder">Min. Order Qty <span class="arrow">▾</span></button>
+        <div class="fs-body" id="sec-minorder">
+          <select class="fp-select" id="minOrderFilter">
+            <option value="">Any quantity</option>
+            <option value="5">Up to 5m</option>
+            <option value="20">Up to 20m</option>
+            <option value="50">Up to 50m</option>
+            <option value="100">Up to 100m</option>
+          </select>
+        </div>
+      </div>
+
+    </aside>
+
+    <!-- ── MAIN CONTENT ── -->
+    <div class="mp-main" id="mpMain">
+
+      <!-- Mobile filter button -->
+      <button class="filter-mobile-btn" id="filterMobileBtn" onclick="openFilterPanel()">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 6h16M7 12h10M10 18h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        Filters
+        <span class="filter-badge" id="filterBadge" style="display:none">0</span>
+      </button>
+
+      <!-- Toolbar -->
+      <div class="mp-toolbar">
+        <span class="results-count"><strong id="visibleCount">16</strong> listings found</span>
+        <div class="toolbar-right">
+          <select class="sort-select" id="sortBy">
+            <option value="newest">Newest First</option>
+            <option value="price-low">Price: Low → High</option>
+            <option value="price-high">Price: High → Low</option>
+            <option value="qty-high">Most Available</option>
+          </select>
+          <div class="view-toggle">
+            <button class="view-btn view-btn--on" data-view="grid" title="Grid view">
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><rect x="0" y="0" width="6" height="6" rx="1"/><rect x="10" y="0" width="6" height="6" rx="1"/><rect x="0" y="10" width="6" height="6" rx="1"/><rect x="10" y="10" width="6" height="6" rx="1"/></svg>
+            </button>
+            <button class="view-btn" data-view="list" title="List view">
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><line x1="0" y1="3" x2="16" y2="3" stroke="currentColor" stroke-width="2"/><line x1="0" y1="8" x2="16" y2="8" stroke="currentColor" stroke-width="2"/><line x1="0" y1="13" x2="16" y2="13" stroke="currentColor" stroke-width="2"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Listings Grid -->
+      <div class="listings-grid" id="listingsGrid">
+
+        <div class="lcard" data-type="cotton" data-price="4.5" data-cert="bci" data-condition="surplus" data-color="white" data-gsm="160" data-location="india" data-minorder="50" data-name="surplus bci cotton ivory">
+          <div class="lcard__img fab-cotton"><span class="lcard__badge badge--new">New</span><button class="lcard__fav" aria-label="Save"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></button></div>
+          <div class="lcard__body"><div class="lc-meta"><span class="lc-type">Organic Cotton</span><span class="lc-cert">BCI</span></div><h4>Surplus BCI Cotton — Ivory</h4><p class="lc-desc">Premium BCI cotton, leftover from a Tirupur garment run. 160 gsm plain weave, 150cm wide.</p><div class="lc-row"><div class="lc-price"><strong>$4.50</strong><span>/m</span></div><span class="lc-qty">200m</span></div><div class="lc-seller"><div class="sel-av sel-av--a"></div><span>Tirupur Mills</span><span class="sel-rating">★ 4.9</span></div></div>
+        </div>
+
+        <div class="lcard lcard--featured" data-type="wool" data-price="18" data-cert="rws" data-condition="deadstock" data-color="grey" data-gsm="240" data-location="indonesia" data-minorder="10" data-name="deadstock merino wool charcoal">
+          <div class="lcard__img fab-wool"><span class="lcard__badge badge--hot">Hot</span><button class="lcard__fav" aria-label="Save"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></button></div>
+          <div class="lcard__body"><div class="lc-meta"><span class="lc-type">Merino Wool</span><span class="lc-cert">RWS</span></div><h4>Deadstock Merino Wool — Charcoal Grey</h4><p class="lc-desc">18.5 micron ultra-fine merino. Cancelled activewear order from Bandung. 240 gsm, 150cm wide.</p><div class="lc-row"><div class="lc-price"><strong>$18.00</strong><span>/m</span></div><span class="lc-qty">85m</span></div><div class="lc-seller"><div class="sel-av sel-av--b"></div><span>Bandung Textile Hub</span><span class="sel-rating">★ 5.0</span></div></div>
+        </div>
+
+        <div class="lcard" data-type="linen" data-price="9.8" data-cert="none" data-condition="surplus" data-color="natural" data-gsm="180" data-location="singapore" data-minorder="50" data-name="washed linen surplus natural undyed">
+          <div class="lcard__img fab-linen"><button class="lcard__fav" aria-label="Save"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></button></div>
+          <div class="lcard__body"><div class="lc-meta"><span class="lc-type">Belgian Linen</span></div><h4>Washed Surplus Linen — Natural Undyed</h4><p class="lc-desc">Pre-washed linen in natural finish. 180 gsm, 145cm wide. Great for resort wear or homeware.</p><div class="lc-row"><div class="lc-price"><strong>$9.80</strong><span>/m</span></div><span class="lc-qty">450m</span></div><div class="lc-seller"><div class="sel-av sel-av--c"></div><span>Maison Fabric SG</span><span class="sel-rating">★ 4.7</span></div></div>
+        </div>
+
+        <div class="lcard" data-type="polyester" data-price="3.2" data-cert="grs" data-condition="surplus" data-color="blue" data-gsm="200" data-location="sea" data-minorder="100" data-name="rpet interlock ocean blue recycled polyester">
+          <div class="lcard__img fab-poly"><span class="lcard__badge badge--bulk">Bulk</span><button class="lcard__fav" aria-label="Save"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></button></div>
+          <div class="lcard__body"><div class="lc-meta"><span class="lc-type">Recycled Polyester</span><span class="lc-cert">GRS</span></div><h4>rPET Interlock Jersey — Ocean Blue</h4><p class="lc-desc">Post-consumer recycled polyester, GRS certified. 200 gsm, vibrant ocean blue. Large stock available.</p><div class="lc-row"><div class="lc-price"><strong>$3.20</strong><span>/m</span></div><span class="lc-qty">1,200m</span></div><div class="lc-seller"><div class="sel-av sel-av--d"></div><span>EcoThread SEA</span><span class="sel-rating">★ 4.8</span></div></div>
+        </div>
+
+        <div class="lcard" data-type="denim" data-price="22" data-cert="none" data-condition="end-of-roll" data-color="blue" data-gsm="450" data-location="sea" data-minorder="10" data-name="selvedge denim end-roll indigo japanese">
+          <div class="lcard__img fab-denim"><button class="lcard__fav" aria-label="Save"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></button></div>
+          <div class="lcard__body"><div class="lc-meta"><span class="lc-type">Denim</span></div><h4>Selvedge Denim End-Rolls — Indigo</h4><p class="lc-desc">14oz Japanese selvedge denim end-rolls, 10–30m per roll. Classic unwashed indigo. 450 gsm.</p><div class="lc-row"><div class="lc-price"><strong>$22.00</strong><span>/m</span></div><span class="lc-qty">~180m</span></div><div class="lc-seller"><div class="sel-av sel-av--e"></div><span>SeaThread Co.</span><span class="sel-rating">★ 5.0</span></div></div>
+        </div>
+
+        <div class="lcard" data-type="blend" data-price="11.5" data-cert="gots" data-condition="surplus" data-color="green" data-gsm="175" data-location="india" data-minorder="50" data-name="gots linen cotton blend sage organic">
+          <div class="lcard__img fab-blend"><span class="lcard__badge badge--new">New</span><button class="lcard__fav" aria-label="Save"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></button></div>
+          <div class="lcard__body"><div class="lc-meta"><span class="lc-type">Linen-Cotton Blend</span><span class="lc-cert">GOTS</span></div><h4>GOTS Linen-Cotton — Sage Green</h4><p class="lc-desc">55% linen / 45% organic cotton, GOTS certified. Sage colourway. 175 gsm, 150cm wide.</p><div class="lc-row"><div class="lc-price"><strong>$11.50</strong><span>/m</span></div><span class="lc-qty">320m</span></div><div class="lc-seller"><div class="sel-av sel-av--f"></div><span>Terra Fabrics India</span><span class="sel-rating">★ 4.6</span></div></div>
+        </div>
+
+        <div class="lcard" data-type="silk" data-price="35" data-cert="oeko-tex" data-condition="deadstock" data-color="beige" data-gsm="80" data-location="sea" data-minorder="5" data-name="silk charmeuse champagne deadstock luxury">
+          <div class="lcard__img fab-silk"><button class="lcard__fav" aria-label="Save"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></button></div>
+          <div class="lcard__body"><div class="lc-meta"><span class="lc-type">Silk</span><span class="lc-cert">OEKO-TEX</span></div><h4>Silk Charmeuse Deadstock — Champagne</h4><p class="lc-desc">Luxury 16mm silk charmeuse, OEKO-TEX certified. Cancelled luxury brand order. Very limited.</p><div class="lc-row"><div class="lc-price"><strong>$35.00</strong><span>/m</span></div><span class="lc-qty">42m</span></div><div class="lc-seller"><div class="sel-av sel-av--g"></div><span>Luxe Fabric SG</span><span class="sel-rating">★ 4.9</span></div></div>
+        </div>
+
+        <div class="lcard" data-type="hemp" data-price="8" data-cert="grs" data-condition="surplus" data-color="brown" data-gsm="300" data-location="india" data-minorder="100" data-name="hemp cotton canvas natural earthy organic">
+          <div class="lcard__img fab-hemp"><span class="lcard__badge badge--bulk">Bulk</span><button class="lcard__fav" aria-label="Save"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></button></div>
+          <div class="lcard__body"><div class="lc-meta"><span class="lc-type">Hemp-Cotton</span><span class="lc-cert">GRS</span></div><h4>Hemp-Cotton Canvas — Earthy Brown</h4><p class="lc-desc">55% hemp / 45% organic cotton canvas surplus. 300 gsm, 148cm wide. Excellent for bags and outerwear.</p><div class="lc-row"><div class="lc-price"><strong>$8.00</strong><span>/m</span></div><span class="lc-qty">650m</span></div><div class="lc-seller"><div class="sel-av sel-av--h"></div><span>Jaipur Weave Co.</span><span class="sel-rating">★ 4.8</span></div></div>
+        </div>
+
+        <div class="lcard" data-type="tencel" data-price="7.5" data-cert="oeko-tex" data-condition="surplus" data-color="pink" data-gsm="155" data-location="sea" data-minorder="30" data-name="tencel lyocell jersey pink dusty rose">
+          <div class="lcard__img fab-tencel"><button class="lcard__fav" aria-label="Save"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></button></div>
+          <div class="lcard__body"><div class="lc-meta"><span class="lc-type">Tencel Jersey</span><span class="lc-cert">OEKO-TEX</span></div><h4>Tencel Jersey — Dusty Pink</h4><p class="lc-desc">Soft Tencel™ lyocell jersey, OEKO-TEX certified. 155 gsm, 160cm wide. Ideal for drapey dresses.</p><div class="lc-row"><div class="lc-price"><strong>$7.50</strong><span>/m</span></div><span class="lc-qty">290m</span></div><div class="lc-seller"><div class="sel-av sel-av--a"></div><span>SEA Sustainable Fab.</span><span class="sel-rating">★ 4.7</span></div></div>
+        </div>
+
+        <div class="lcard" data-type="wool" data-price="28" data-cert="rws" data-condition="deadstock" data-color="green" data-gsm="380" data-location="europe" data-minorder="10" data-name="deadstock wool tweed forest green heritage">
+          <div class="lcard__img fab-tweed"><button class="lcard__fav" aria-label="Save"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></button></div>
+          <div class="lcard__body"><div class="lc-meta"><span class="lc-type">Wool Tweed</span><span class="lc-cert">RWS</span></div><h4>Deadstock Wool Tweed — Forest Green</h4><p class="lc-desc">Traditional wool tweed deadstock, RWS certified. 380 gsm, 145cm wide. Heritage fabrication.</p><div class="lc-row"><div class="lc-price"><strong>$28.00</strong><span>/m</span></div><span class="lc-qty">130m</span></div><div class="lc-seller"><div class="sel-av sel-av--b"></div><span>Nordic Wool Mills</span><span class="sel-rating">★ 4.9</span></div></div>
+        </div>
+
+        <div class="lcard" data-type="nylon" data-price="5.5" data-cert="grs" data-condition="surplus" data-color="black" data-gsm="130" data-location="sea" data-minorder="100" data-name="recycled nylon taslan black lightweight">
+          <div class="lcard__img fab-nylon"><span class="lcard__badge badge--bulk">Bulk</span><button class="lcard__fav" aria-label="Save"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></button></div>
+          <div class="lcard__body"><div class="lc-meta"><span class="lc-type">Recycled Nylon</span><span class="lc-cert">GRS</span></div><h4>Recycled Nylon Taslan — Black</h4><p class="lc-desc">rNylon GRS certified, 130 gsm lightweight ripstop-style. Large volume available, perfect for activewear.</p><div class="lc-row"><div class="lc-price"><strong>$5.50</strong><span>/m</span></div><span class="lc-qty">800m</span></div><div class="lc-seller"><div class="sel-av sel-av--c"></div><span>GreenFab Indonesia</span><span class="sel-rating">★ 4.8</span></div></div>
+        </div>
+
+        <div class="lcard" data-type="cotton" data-price="6" data-cert="bci" data-condition="end-of-roll" data-color="blue" data-gsm="120" data-location="india" data-minorder="20" data-name="cotton seersucker blue stripe summer">
+          <div class="lcard__img fab-seersucker"><button class="lcard__fav" aria-label="Save"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></button></div>
+          <div class="lcard__body"><div class="lc-meta"><span class="lc-type">Cotton</span><span class="lc-cert">BCI</span></div><h4>Seersucker End-Rolls — Blue Stripe</h4><p class="lc-desc">BCI cotton seersucker in classic blue/white stripe. 120 gsm, end-of-season rolls, perfect for summer wear.</p><div class="lc-row"><div class="lc-price"><strong>$6.00</strong><span>/m</span></div><span class="lc-qty">350m</span></div><div class="lc-seller"><div class="sel-av sel-av--d"></div><span>Chennai Cotton Co.</span><span class="sel-rating">★ 4.6</span></div></div>
+        </div>
+
+        <div class="lcard" data-type="viscose" data-price="5" data-cert="oeko-tex" data-condition="surplus" data-color="white" data-gsm="110" data-location="india" data-minorder="50" data-name="viscose rayon chiffon ivory white lightweight">
+          <div class="lcard__img fab-silk" style="opacity:.85"><button class="lcard__fav" aria-label="Save"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></button></div>
+          <div class="lcard__body"><div class="lc-meta"><span class="lc-type">Viscose Chiffon</span><span class="lc-cert">OEKO-TEX</span></div><h4>Viscose Chiffon Surplus — Ivory</h4><p class="lc-desc">Lightweight viscose chiffon, OEKO-TEX certified. 110 gsm, 140cm wide. Excellent drape for dresses.</p><div class="lc-row"><div class="lc-price"><strong>$5.00</strong><span>/m</span></div><span class="lc-qty">520m</span></div><div class="lc-seller"><div class="sel-av sel-av--e"></div><span>Surat Textiles Hub</span><span class="sel-rating">★ 4.5</span></div></div>
+        </div>
+
+        <div class="lcard" data-type="organic-cotton" data-price="8.5" data-cert="gots" data-condition="surplus" data-color="white" data-gsm="220" data-location="india" data-minorder="30" data-name="gots organic cotton fleece ivory hoodies">
+          <div class="lcard__img fab-cotton" style="filter:brightness(1.05)"><span class="lcard__badge badge--new">New</span><button class="lcard__fav" aria-label="Save"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></button></div>
+          <div class="lcard__body"><div class="lc-meta"><span class="lc-type">Organic Cotton</span><span class="lc-cert">GOTS</span></div><h4>GOTS Organic Cotton Fleece — Natural White</h4><p class="lc-desc">Organic cotton fleece GOTS certified. 220 gsm, unbrushed, natural white. Great for hoodies and casualwear.</p><div class="lc-row"><div class="lc-price"><strong>$8.50</strong><span>/m</span></div><span class="lc-qty">480m</span></div><div class="lc-seller"><div class="sel-av sel-av--f"></div><span>Organic Hub India</span><span class="sel-rating">★ 4.8</span></div></div>
+        </div>
+
+        <div class="lcard" data-type="bamboo" data-price="9" data-cert="oeko-tex" data-condition="surplus" data-color="white" data-gsm="190" data-location="sea" data-minorder="20" data-name="bamboo modal jersey white soft sustainable">
+          <div class="lcard__img fab-blend" style="filter:hue-rotate(80deg) brightness(1.2)"><button class="lcard__fav" aria-label="Save"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></button></div>
+          <div class="lcard__body"><div class="lc-meta"><span class="lc-type">Bamboo / Modal</span><span class="lc-cert">OEKO-TEX</span></div><h4>Bamboo-Modal Jersey — White</h4><p class="lc-desc">70% bamboo / 30% modal blend. OEKO-TEX certified, ultra-soft handfeel. 190 gsm, 170cm wide.</p><div class="lc-row"><div class="lc-price"><strong>$9.00</strong><span>/m</span></div><span class="lc-qty">260m</span></div><div class="lc-seller"><div class="sel-av sel-av--g"></div><span>Myanmar Green Fab</span><span class="sel-rating">★ 4.7</span></div></div>
+        </div>
+
+        <div class="lcard" data-type="linen" data-price="14" data-cert="gots" data-condition="deadstock" data-color="blue" data-gsm="210" data-location="europe" data-minorder="20" data-name="gots linen deadstock denim blue washed">
+          <div class="lcard__img fab-linen" style="filter:hue-rotate(160deg) brightness(.9)"><button class="lcard__fav" aria-label="Save"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></button></div>
+          <div class="lcard__body"><div class="lc-meta"><span class="lc-type">Linen</span><span class="lc-cert">GOTS</span></div><h4>GOTS Deadstock Linen — Washed Denim Blue</h4><p class="lc-desc">Garment-washed linen in denim blue, GOTS certified. 210 gsm, 145cm wide. Minimal left.</p><div class="lc-row"><div class="lc-price"><strong>$14.00</strong><span>/m</span></div><span class="lc-qty">95m</span></div><div class="lc-seller"><div class="sel-av sel-av--h"></div><span>EuroLinen Import</span><span class="sel-rating">★ 4.8</span></div></div>
+        </div>
+
+      </div><!-- /listings-grid -->
+
+      <!-- No results -->
+      <div class="no-results" id="noResults" style="display:none">
+        <svg width="56" height="56" viewBox="0 0 24 24" fill="none" style="margin:0 auto 16px;color:var(--t4)"><circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="1.5"/><path d="m21 21-4.35-4.35M8 11h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <p>No listings match your current filters.</p>
+        <button class="btn btn--outline" onclick="document.getElementById('clearAllFilters').click()">Clear All Filters</button>
+      </div>
+
+    </div><!-- /mp-main -->
+  </div><!-- /mp-layout -->
+</div>
+
+<!-- FOOTER -->
+<footer class="footer" style="margin-top:64px">
+  <div class="container">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <a href="index.html" class="nav__logo" style="margin-bottom:14px;display:flex">
+          <span class="logo-text"><span class="logo-circu" style="color:var(--white)">Circu</span><span class="logo-link">Link</span></span>
+        </a>
+        <p>Closing the loop on textile waste across Southeast Asia.</p>
+        <div class="footer__social">
+          <a href="#" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg></a>
+          <a href="#" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+        </div>
+      </div>
+      <div class="footer__links">
+        <div class="footer__col"><h5>Platform</h5><ul><li><a href="marketplace.html">Marketplace</a></li><li><a href="sell.html">Sell Surplus</a></li><li><a href="sell.html#pricing">Pricing</a></li></ul></div>
+        <div class="footer__col"><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="about.html#team">Team</a></li><li><a href="#">Blog</a></li></ul></div>
+        <div class="footer__col"><h5>Support</h5><ul><li><a href="#">Help Centre</a></li><li><a href="#">Buyer Guide</a></li><li><a href="#">Contact</a></li></ul></div>
+        <div class="footer__col"><h5>Legal</h5><ul><li><a href="#">Privacy</a></li><li><a href="#">Terms</a></li></ul></div>
+      </div>
+    </div>
+    <div class="footer__bottom"><p>&copy; 2025 CircuLink.</p><p>Made in Singapore for Southeast Asia.</p></div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script src="cart.js"></script>
+<script src="marketplace.js"></script>
+</body>
+</html>
